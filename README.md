@@ -12,6 +12,8 @@ The goal of this repository is to track my academic progression and keep all my 
 
 The repository is organized by courses and programming languages:
 
+- **Konstrukcija i analiza algoritama 2** – C++    
+
 ---
 
 💡 *Feel free to explore or use these examples for learning purposes.*
