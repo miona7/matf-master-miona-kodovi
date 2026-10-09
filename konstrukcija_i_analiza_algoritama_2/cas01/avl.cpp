@@ -3,8 +3,8 @@
 
 typedef struct Node {
     int key;
-    int height;
-    int size; // broj cvorova u podstablu
+    int height; // broj cvorova na putu od cvora do najdubljeg lista ukljucujuci i njega
+    int size; // broj cvorova u podstablu cvora ukljucujuci i njega
     struct Node* left;
     struct Node* right;
 } Node;
@@ -24,7 +24,7 @@ int max(int a, int b) {
 
 // kreiranje novog cvora
 Node* newNode(int key) {
-    Node* n = (Node*) malloc(sizeof(Node));
+    Node* n = (Node*)malloc(sizeof(Node));
     n->key = key;
     n->height = 1;
     n->size = 1;
