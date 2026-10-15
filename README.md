@@ -12,7 +12,11 @@ The goal of this repository is to track my academic progression and keep all my 
 
 The repository is organized by courses and programming languages:
 
-- **Konstrukcija i analiza algoritama 2** – C++    
+- **Konstrukcija i analiza algoritama 2** – C++     
+  Focuses on advanced algorithms and data structures, randomized algorithms, approximation techniques, and parallel execution.
+  
+- **Automatsko rezonovanje** – C++, Haskell      
+  Covers formal logic, SAT and SMT solving, resolution techniques, and practical applications of automated theorem proving.
 
 ---
 
