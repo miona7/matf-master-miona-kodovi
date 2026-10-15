@@ -24,6 +24,9 @@ int main() {
     formula.push_back({-a, -c});
     formula.push_back({a, c});
 
+    // provera jedinstvenosti resenja
+    // formula.push_back({-a, b, c}); -> resenje je jedinstveno
+
     std::cout << "p cnf 3 " << formula.size() << std::endl;
     for(const auto& c: formula) {
         for(const auto& v: c) {
