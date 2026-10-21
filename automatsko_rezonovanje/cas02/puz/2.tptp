@@ -1,0 +1,18 @@
+% Problem: The Barber Puzzle
+% There is a barbers' club that obeys the following three conditions:
+% 1) If any member A has shaved any other member B - whether himself or another - then all members have shaved A,
+% though not necessarily at the same time.
+% 2) Four of the members are named Guido, Lorenzo, Petrucio, and Cesare.
+% 3) Guido has shaved Cesare.
+% Prove Petrucio has shaved Lorenzo.
+
+fof(ax1, axiom, ![A, B, C]: ((member(A) & member(B) & member(C) & shaved(A, B)) => shaved(C, A))).
+fof(h1, hypothesis, member(guido)).
+fof(h2, hypothesis, member(lorenzo)).
+fof(h3, hypothesis, member(petrucio)).
+fof(h4, hypothesis, member(cesare)).
+fof(ax6, axiom, shaved(guido, cesare)).
+
+% fof(konz, conjecture, $false).
+
+fof(conj1, conjecture, shaved(petrucio, lorenzo)).

@@ -1,0 +1,27 @@
+% Problem: The Animals Puzzle
+% 1) The only animals in this house are cats.
+% 2) Every animal is suitable for a pet, that loves to gaze at the moon.
+% 3) When I detest an animal, I avoid it.
+% 4) No animals are carnivorous, unless they prowl at night.
+% 5) No cat fails to kill mice.
+% 6) No animals ever take to me, except what are in this house.
+% 7) Kangaroos are not suitable for pets.
+% 8) None but carnivora kill mice.
+% 9) I detest animals that do not take to me.
+% 10) Animals that prowl at night always love to gaze at the moon.
+% The problem is to prove that "I always avoid a kangaroo".
+
+fof(ax1, axiom, ![X]: (in_house(X) => cat(X))).
+fof(ax2, axiom, ![X]: (loves_to_gaze(X) => suitable_for_pet(X))).
+fof(ax3, axiom, ![X]: (detest(X) => avoid(X))).
+fof(ax4, axiom, ![X]: (carnivora(X) => prowl_at_night(X))).
+fof(ax5, axiom, ![X]: (cat(X) => kill_mice(X))).
+fof(ax6, axiom, ![X]: (~in_house(X) => ~take_to_me(X))).
+fof(ax7, axiom, ~suitable_for_pet(kangaroo)).
+fof(ax8, axiom, ![X]: (kill_mice(X) => carnivora(X))).
+fof(ax9, axiom, ![X]: (~take_to_me(X) => detest(X))).
+fof(ax10, axiom, ![X]: (prowl_at_night(X) => loves_to_gaze(X))).
+
+% fof(konz, conjecture, $false).
+
+fof(conj1, conjecture, avoid(kangaroo)).
