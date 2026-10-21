@@ -1,0 +1,30 @@
+% Problem: The Lion and the Unicorn
+% Lion lies on Monday, Tuesday and Wednesday. 
+% Unicorn lies on Thursday, Friday and Saturday.
+% Both tell truth on other days.
+% Both say yesterday was one of their lying days.
+% Prove that today is Thursday.
+
+fof(ax_days, axiom, (monday != tuesday & monday != wednesday & monday != thursday & monday != friday & monday != saturday & monday != sunday
+                    & tuesday != wednesday & tuesday != thursday & tuesday != friday & tuesday != saturday & tuesday != sunday
+                    & wednesday != thursday & wednesday != friday & wednesday != saturday & wednesday != sunday
+                    & thursday != friday & thursday != saturday & thursday != sunday
+                    & friday != saturday & friday != sunday & saturday != sunday)).
+
+fof(ax_yest_mon, axiom, yesterday(monday, sunday)).
+fof(ax_yest_tue, axiom, yesterday(tuesday, monday)).
+fof(ax_yest_wed, axiom, yesterday(wednesday, tuesday)).
+fof(ax_yest_thu, axiom, yesterday(thursday, wednesday)).
+fof(ax_yest_fri, axiom, yesterday(friday, thursday)).
+fof(ax_yest_sat, axiom, yesterday(saturday, friday)).
+fof(ax_yest_sun, axiom, yesterday(sunday, saturday)).
+
+fof(ax1, axiom, ![X]: (lies_lion(X) <=> (X = monday | X = tuesday | X = wednesday))).
+fof(ax2, axiom, ![X]: (lies_unicorn(X) <=> (X = thursday | X = friday | X = saturday))).
+fof(ax3, axiom, ![Y]: (yesterday(today, Y) => (~lies_lion(today) <=> lies_lion(Y)))).
+fof(ax4, axiom, ![Y]: (yesterday(today, Y) => (~lies_unicorn(today) <=> lies_unicorn(Y)))).
+fof(ax5, axiom, (today = monday | today = tuesday | today = wednesday | today = thursday | today = friday | today = saturday | today = sunday)).
+
+% fof(konz, conjecture, $false).
+
+fof(conj1, conjecture, today = thursday).

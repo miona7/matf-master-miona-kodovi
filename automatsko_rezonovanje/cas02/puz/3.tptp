@@ -1,0 +1,25 @@
+% Problem: The Letters Puzzle
+% 1) All the dated letters in this room are written on blue paper.
+% 2) None of them are in black ink except those that are written in the third person.
+% 3) I have not filed any of them that I can read.
+% 4) None of them that are written on one sheet are undated.
+% 5) All of them that are not crossed are in black ink.  
+% 6) All of them written by Brown begin with "Dear Sir" 
+% 7) All of them written on blue paper are filed.        :
+% 8) None of them written on more than one sheet are crossed.
+% 9) None of them that begin with "Dear Sir" are written in third person.
+% Prove that letters by Brown cannot be read.
+
+fof(ax1, axiom, ![X]: (dated(X) => blue_paper(X))).
+fof(ax2, axiom, ![X]: (black_ink(X) => third_person(X))).
+fof(ax3, axiom, ![X]: (read(X) => ~filed(X))).
+fof(ax4, axiom, ![X]: (one_sheet(X) => dated(X))).
+fof(ax5, axiom, ![X]: (~crossed(X) => black_ink(X))).
+fof(ax6, axiom, ![X]: (brown(X) => dear_sir(X))).
+fof(ax7, axiom, ![X]: (blue_paper(X) => filed(X))).
+fof(ax8, axiom, ![X]: (~one_sheet(X) => ~crossed(X))).
+fof(ax9, axiom, ![X]: (dear_sir(X) => ~third_person(X))).
+
+% fof(konz, conjecture, $false).
+
+fof(conj1, conjecture, ![X]: (brown(X) => ~read(X))).
