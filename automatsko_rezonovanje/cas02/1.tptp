@@ -1,0 +1,15 @@
+% (∀x) covek(x) => smrtan(x)
+% covek(Sokrat)
+
+fof(ax1, axiom, ![X]: (covek(X) => smrtan(X))).
+fof(ax2, axiom, covek(sokrat)).
+
+% fof(conj1, conjecture, smrtan(sokrat)).
+
+% fof(conj2, conjecture, ![X]: ((smrtan(X) & covek(X)) => covek(X))).
+
+% fof(conj3, conjecture, ~smrtan(sokrat)).
+
+fof(ax3, axiom, ?[X]: (covek(X) & ~smrtan(X))).
+
+fof(konz, conjecture, $false).

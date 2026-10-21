@@ -1,0 +1,17 @@
+fof(ax1, axiom, ?[X]: (zivi_u_vili(X) & ubio(X, agata))).
+fof(ax2, axiom, (zivi_u_vili(agata) & zivi_u_vili(batler) & zivi_u_vili(carls))).
+fof(ax3, axiom, ![X]: (zivi_u_vili(X) => (X = agata | X = batler | X = carls))). 
+fof(ax4, axiom, ![X, Y]: (ubio(X, Y) => mrzi(X, Y))). 
+fof(ax5, axiom, ![X, Y]: (ubio(X, Y) => ~bogatiji(X, Y))).  
+fof(ax6, axiom, ![X]: (mrzi(agata, X) => ~mrzi(carls, X))).  
+fof(ax7, axiom, ![X]: (mrzi(agata, X) <=> (X != batler))).   
+fof(ax8, axiom, ![X]: (~bogatiji(X, agata) => mrzi(batler, X))). 
+fof(ax9, axiom, ![X]: (mrzi(agata, X) => mrzi(batler, X))). 
+fof(ax10, axiom, ![X]: ?[Y]: (~mrzi(X, Y))).
+fof(ax11, axiom, (agata != batler)). 
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, ubio(batler, agata)).
+% fof(conj2, conjecture, ubio(carls, agata)).
+fof(conj3, conjecture, ubio(agata, agata)).
