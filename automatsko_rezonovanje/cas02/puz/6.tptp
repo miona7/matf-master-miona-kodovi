@@ -1,0 +1,23 @@
+% Problem: Mixed couples on Mars and Venus
+% Here's the situation: human observers in this exclusive club
+% on Ganymede can't distinguish Martians from Venusians, males
+% from females, except for the fact that Venusian women and
+% Martian men always tell the truth and Venusian men and
+% Martian women always lie.
+% A says "I'm from Mars" B exclaims "That's not true!" A and
+% B are married; are they a mixed couple?
+
+fof(ax1, axiom, ![X]: (female(X) <=> ~male(X))).
+fof(ax2, axiom, ![X]: (truth(X) <=> ~lies(X))).
+fof(ax3, axiom, ![X]: (martian(X) <=> ~venusian(X))).
+
+fof(ax4, axiom, ![X]: (truth(X) <=> ((venusian(X) & female(X)) | (martian(X) & male(X))))).
+fof(ax5, axiom, ![X]: (lies(X) <=> ((venusian(X) & male(X)) | (martian(X) & female(X))))).
+
+fof(ax6, axiom, (truth(a) <=> martian(a))).
+fof(ax7, axiom, (truth(b) <=> ~martian(a))).
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, ((martian(a) & venusian(b)) | (martian(b) & venusian(a)))).
+% fof(conj2, conjecture, ((female(a) & male(b)) | (female(b) & male(a)))).

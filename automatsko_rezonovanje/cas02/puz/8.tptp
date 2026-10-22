@@ -1,0 +1,24 @@
+% Problem: Looking for Oona
+% In another curious incident, when the husband arrived on an
+% island looking for Oona, he met 5 natives A, B, C, D, E who all
+% guessed his purpose and grinned at meeting him. They said:
+% A: Oona is on this island. B: Oona is not on this island.
+% C: Oona was here yesterday. D: Oona is not here today, and she
+% was not here yesterday. E: Either D is a knave or C is a knight.
+% The logician thought for a while, but could get nowhere. 'Won't
+% one of you please make another statement?' the logician pleaded.
+% At this point A said: Either E is a knave or C is a knight. Is
+% Oona on the island?"
+
+fof(ax1, axiom, ![X]: (knave(X) <=> ~knight(X))).
+fof(ax2, axiom, (knight(a) <=> on_island(oona))).
+fof(ax3, axiom, (knight(b) <=> ~on_island(oona))).
+fof(ax4, axiom, (knight(e) <=> (knave(d) | knight(c)))).
+fof(ax5, axiom, (knight(a) <=> (knave(e) | knight(c)))).
+fof(ax6, axiom, (knight(c) <=> was_on_island(oona))).
+fof(ax7, axiom, (knight(d) <=> (~was_on_island(oona) & ~on_island(oona)))).
+fof(ax8, axiom, ![X]: (on_island(X) => was_on_island(X))).
+
+% fof(konz, conjecture, $false).
+
+fof(conj1, conjecture, on_island(oona)).
