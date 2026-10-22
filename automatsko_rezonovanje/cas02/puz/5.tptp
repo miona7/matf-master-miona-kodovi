@@ -18,8 +18,7 @@ fof(ax6, axiom, (women(ork) <=> truth(bog))).
 
 fof(ax7, axiom, ![X]: (lie(X) <=> ~truth(X))).
 fof(ax8, axiom, ![X]: (women(X) <=> ~men(X))).
-fof(ax9, axiom, ![X]: (lie(X) <=> ~truth(X))).
-fof(ax10, axiom, ![X]: (martian(X) <=> ~venusian(X))).
+fof(ax9, axiom, ![X]: (martian(X) <=> ~venusian(X))).
 
 % fof(konz, conjecture, $false).
 
