@@ -1,0 +1,36 @@
+% Problem: Determine sex and race on Mars and Venus
+% Here's the situation: human observers in this exclusive club
+% on Ganymede can't distinguish Martians from Venusians, males
+% from females, except for the fact that Venusian women and
+% Martian men always tell the truth and Venusian men and
+% Martian women always lie. Ork says "Bog is from Venus." 
+% Bog says "Ork is from Mars." Ork says "Bog is male." 
+% Bog says "Ork is female." Who's what? (sex & race).
+
+fof(ax1, axiom, ![X]: (truth(X) <=> ((venusian(X) & women(X)) | (martian(X) & men(X))))).
+fof(ax2, axiom, ![X]: (lie(X) <=> ((venusian(X) & men(X)) | (martian(X) & women(X))))).
+
+fof(ax3, axiom, (venusian(bog) <=> truth(ork))).
+fof(ax4, axiom, (men(bog) <=> truth(ork))).
+
+fof(ax5, axiom, (martian(ork) <=> truth(bog))).
+fof(ax6, axiom, (women(ork) <=> truth(bog))).
+
+fof(ax7, axiom, ![X]: (lie(X) <=> ~truth(X))).
+fof(ax8, axiom, ![X]: (women(X) <=> ~men(X))).
+fof(ax9, axiom, ![X]: (lie(X) <=> ~truth(X))).
+fof(ax10, axiom, ![X]: (martian(X) <=> ~venusian(X))).
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, (venusian(bog) & men(bog))).
+% fof(conj2, conjecture, (martian(ork) & women(ork))).
+
+% fof(conj3, conjecture, (venusian(bog) & women(bog))).
+% fof(conj4, conjecture, (martian(ork) & men(ork))).
+
+fof(conj5, conjecture, (martian(bog) & women(bog))).
+fof(conj6, conjecture, (venusian(ork) & men(ork))).
+
+% fof(conj7, conjecture, (martian(bog) & men(bog))).
+% fof(conj8, conjecture, (venusian(ork) & women(ork))).
