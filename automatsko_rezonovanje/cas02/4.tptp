@@ -1,0 +1,44 @@
+fof(ax1, axiom, ![A, B, C]: (unija(A, B, C) <=> 
+                            ![X]: (elem(X, C) <=> (elem(X, A) | elem(X, B))))).
+fof(ax2, axiom, ![A, B, C]: (presek(A, B, C) <=> 
+                            ![X]: (elem(X, C) <=> (elem(X, A) & elem(X, B))))).
+fof(ax3, axiom, ![A, B, C]: (razlika(A, B, C) <=> 
+                            ![X]: (elem(X, C) <=> (elem(X, A) & ~elem(X, B))))).
+fof(ax4, axiom, ![A, B]: (jednaki(A, B) <=> ![X]: (elem(X, A) <=> elem(X, B)))).
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, ![A, B, C, BuC, ArB, ArC, Levo, Desno]: (
+%    unija(B, C, BuC) & 
+%    razlika(A, B, ArB) &
+%    razlika(A, C, ArC) & 
+%    razlika(A, BuC, Levo) & 
+%    presek(ArB, ArC, Desno) =>
+%    jednaki(Levo, Desno)
+% )).
+
+% fof(conj2, conjecture, ![A, B, C, ArB, AuC, Levo, Desno]: (
+%   razlika(A, B, ArB) &
+%   unija(A, C, AuC) & 
+%   presek(ArB, C, Levo) &
+%   razlika(AuC, B, Desno) => 
+%   jednaki(Levo, Desno)
+% )).
+
+fof(ax5, axiom, ![A, B]: (podskup(A, B) <=> ![X]: (elem(X, A) => elem(X, B)))).
+
+% fof(conj3, conjecture, ![A, B, C, ArB, AuC, Levo, Desno]: (
+%   razlika(A, B, ArB) &
+%   unija(A, C, AuC) & 
+%   presek(ArB, C, Levo) &
+%   razlika(AuC, B, Desno) => 
+%   podskup(Levo, Desno)
+% )).
+
+fof(conj4, conjecture, ![A, B, C, ArB, AuC, Levo, Desno]: (
+    razlika(A, B, ArB) &
+    unija(A, C, AuC) & 
+    presek(ArB, C, Levo) &
+    razlika(AuC, B, Desno) => 
+    podskup(Desno, Levo)
+)).

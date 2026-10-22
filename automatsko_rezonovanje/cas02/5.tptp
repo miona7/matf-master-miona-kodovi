@@ -1,0 +1,8 @@
+fof(ax1, axiom, ![X]: (mul(e, X) = X)).
+fof(ax2, axiom, ![X]: (mul(inv(X), X) = e)).
+fof(ax3, axiom, ![X, Y, Z]: (mul(mul(X, Y), Z) = mul(X, mul(Y, Z)))).
+
+fof(h1, hypothesis, ![X]: (mul(X, X) = e)).
+
+% fof(conj1, conjecture, ![X]: (inv(X) = X)).
+fof(conj2, conjecture, ![X, Y]: (mul(X, Y) = mul(Y, X))).
