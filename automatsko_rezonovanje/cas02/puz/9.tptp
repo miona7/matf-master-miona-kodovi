@@ -1,0 +1,103 @@
+% Problem: Who owns the zebra?
+% There are five consecutive houses, each of a different color
+% and inhabited by men of different nationalities. They each
+% own a different pet, have a different favorite drink and drive a different car.
+% 1. The Englishman lives in the red house.
+% 2. The Spaniard owns the dog.
+% 3. Coffee is drunk in the green house.
+% 4. The Ukrainian drinks tea.
+% 5. The green house is immediately to the right of the ivory house.
+% 6. The Porsche driver owns snails.
+% 7. The Masserati is driven by the man who lives in the yellow house.
+% 8. Milk is drunk in the middle house.
+% 9. The Norwegian lives in the first house on the left.
+% 10. The man who drives a Saab lives in the house next to the man with the fox.
+% 11. The Masserati is driven by the man in the house next to the house where the horse is kept.
+% 12. The Honda driver drinks orange juice.
+% 13. The Japanese drives a Jaguar.
+% 14. The Norwegian lives next to the blue house.
+% The problem is: Who owns the Zebra? Who drinks water? 
+
+% definisanje domena i razlicitosti kuca 
+fof(ax_houses, axiom, (h1 != h2 & h1 != h3 & h1 != h4 & h1 != h5 &
+                       h2 != h3 & h2 != h4 & h2 != h5 &
+                       h3 != h4 & h3 != h5 &
+                       h4 != h5)).
+
+% ogranicenje da su jedini elementi u domenu tacno ovih 5 kuca
+fof(ax_domain, axiom, ![X]: (X = h1 | X = h2 | X = h3 | X = h4 | X = h5)).
+
+% desno i susedstvo
+fof(ax_r1, axiom, right_of(h2, h1)).
+fof(ax_r2, axiom, right_of(h3, h2)).
+fof(ax_r3, axiom, right_of(h4, h3)).
+fof(ax_r4, axiom, right_of(h5, h4)).
+
+fof(ax_next, axiom, ![X, Y]: (next_to(X, Y) <=> (right_of(X, Y) | right_of(Y, X)))).
+
+% postojanje nepoznatih elemenata 
+fof(ax_ex_zebra, axiom, ?[X]: zebra(X)).
+fof(ax_ex_water, axiom, ?[X]: water(X)).
+
+% pokrivenost (svaka kuca ima po 1 osobinu iz svake kategorije) 
+fof(ax_tot_nat, axiom, ![X]: (norwegian(X) | englishman(X) | spaniard(X) | ukrainian(X) | japanese(X))).
+fof(ax_tot_col, axiom, ![X]: (red(X) | blue(X) | green(X) | yellow(X) | ivory(X))).
+fof(ax_tot_drk, axiom, ![X]: (coffee(X) | tea(X) | milk(X) | orange_juice(X) | water(X))).
+fof(ax_tot_pet, axiom, ![X]: (dog(X) | snails(X) | fox(X) | horse(X) | zebra(X))).
+fof(ax_tot_car, axiom, ![X]: (porsche(X) | masserati(X) | saab(X) | honda(X) | jaguar(X))).
+
+% jedinstvenost osobina po kuci 
+fof(ax_unique_nat, axiom, ![X]: (
+    (norwegian(X) => (~englishman(X) & ~spaniard(X) & ~ukrainian(X) & ~japanese(X))) &
+    (englishman(X) => (~spaniard(X) & ~ukrainian(X) & ~japanese(X))) &
+    (spaniard(X) => (~ukrainian(X) & ~japanese(X))) &
+    (ukrainian(X) => (~japanese(X)))
+)).
+
+fof(ax_unique_col, axiom, ![X]: (
+    (red(X) => (~blue(X) & ~green(X) & ~yellow(X) & ~ivory(X))) &
+    (blue(X) => (~green(X) & ~yellow(X) & ~ivory(X))) &
+    (green(X) => (~yellow(X) & ~ivory(X))) &
+    (yellow(X) => ~ivory(X))
+)).
+
+fof(ax_unique_drk, axiom, ![X]: (
+    (coffee(X) => (~tea(X) & ~milk(X) & ~orange_juice(X) & ~water(X))) &
+    (tea(X) => (~milk(X) & ~orange_juice(X) & ~water(X))) &
+    (milk(X) => (~orange_juice(X) & ~water(X))) &
+    (orange_juice(X) => ~water(X))
+)).
+
+fof(ax_unique_pet, axiom, ![X]: (
+    (dog(X) => (~snails(X) & ~fox(X) & ~horse(X) & ~zebra(X))) &
+    (snails(X) => (~fox(X) & ~horse(X) & ~zebra(X))) &
+    (fox(X) => (~horse(X) & ~zebra(X))) &
+    (horse(X) => ~zebra(X))
+)).
+
+fof(ax_unique_car, axiom, ![X]: (
+    (porsche(X) => (~masserati(X) & ~saab(X) & ~honda(X) & ~jaguar(X))) &
+    (masserati(X) => (~saab(X) & ~honda(X) & ~jaguar(X))) &
+    (saab(X) => (~honda(X) & ~jaguar(X))) &
+    (honda(X) => ~jaguar(X))
+)).
+
+fof(ax1, axiom, ![X]: (englishman(X) <=> red(X))).
+fof(ax2, axiom, ![X]: (spaniard(X) <=> dog(X))).
+fof(ax3, axiom, ![X]: (coffee(X) <=> green(X))).
+fof(ax4, axiom, ![X]: (ukrainian(X) <=> tea(X))).
+fof(ax5, axiom, ![X, Y]: ((green(X) & ivory(Y)) <=> right_of(X, Y))).
+fof(ax6, axiom, ![X]: (porsche(X) <=> snails(X))).
+fof(ax7, axiom, ![X]: (masserati(X) <=> yellow(X))).
+fof(ax8, axiom, milk(h3)).
+fof(ax9, axiom, norwegian(h1)).
+fof(ax10, axiom, ![X]: (saab(X) <=> ?[Y]: (fox(Y) & next_to(X, Y)))).
+fof(ax11, axiom, ![X]: (masserati(X) <=> ?[Y]: (horse(Y) & next_to(X, Y)))).
+fof(ax12, axiom, ![X]: (honda(X) <=> orange_juice(X))).
+fof(ax13, axiom, ![X]: (japanese(X) <=> jaguar(X))).
+fof(ax14, axiom, ![X]: (blue(X) <=> next_to(h1, X))).
+
+fof(conj_zebra_and_water, conjecture, 
+    (![X]: (zebra(X) => japanese(X)) & 
+     ![X]: (water(X) => norwegian(X)))
+).
