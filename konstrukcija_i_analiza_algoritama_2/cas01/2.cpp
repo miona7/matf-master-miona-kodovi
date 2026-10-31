@@ -66,25 +66,25 @@ inline Cvor *rotacijaRR(Cvor* A) {
 }
 
 inline Cvor* balansiraj(Cvor* koren) {
-    if (koren == nullptr) {
+    if(koren == nullptr) {
         return nullptr;
     }
     
     koren->azurirajVrednosti();
     
-    if (koren->faktorRavnoteze == 2 && koren->levo->faktorRavnoteze >= 0) {
+    if(koren->faktorRavnoteze == 2 && koren->levo->faktorRavnoteze >= 0) {
         return rotacijaLL(koren);
     }
 
-    if (koren->faktorRavnoteze == 2 && koren->levo->faktorRavnoteze < 0) {
+    if(koren->faktorRavnoteze == 2 && koren->levo->faktorRavnoteze < 0) {
         return rotacijaLR(koren);
     }
 
-    if (koren->faktorRavnoteze == -2 && koren->desno->faktorRavnoteze > 0) {
+    if(koren->faktorRavnoteze == -2 && koren->desno->faktorRavnoteze > 0) {
         return rotacijaRL(koren);
     }
     
-    if (koren->faktorRavnoteze == -2 && koren->desno->faktorRavnoteze <= 0) {
+    if(koren->faktorRavnoteze == -2 && koren->desno->faktorRavnoteze <= 0) {
         return rotacijaRR(koren);
     }
     
@@ -92,15 +92,15 @@ inline Cvor* balansiraj(Cvor* koren) {
 }
 
 inline bool pronadji(Cvor* koren, int x) {
-    if (koren == nullptr) {
+    if(koren == nullptr) {
         return false;
     }
 
-    if (x < koren->kljuc) {
+    if(x < koren->kljuc) {
         return pronadji(koren->levo, x);
     }
 
-    if (x > koren->kljuc) {
+    if(x > koren->kljuc) {
         return pronadji(koren->desno, x);
     }
 
@@ -108,14 +108,14 @@ inline bool pronadji(Cvor* koren, int x) {
 }
 
 inline Cvor* umetni(Cvor* koren, int x) {
-    if (koren == nullptr) {
+    if(koren == nullptr) {
         return new Cvor{.kljuc = x, .levo = nullptr, .desno = nullptr,
                         .visina = 0, .faktorRavnoteze = 0};
     }
 
-    if (x < koren->kljuc) {
+    if(x < koren->kljuc) {
         koren->levo = umetni(koren->levo, x);
-    } else if (x > koren->kljuc) {
+    } else if(x > koren->kljuc) {
         koren->desno = umetni(koren->desno, x);
     }
 
@@ -123,7 +123,7 @@ inline Cvor* umetni(Cvor* koren, int x) {
 }
 
 inline Cvor* najmanji(Cvor* koren) {
-    if (koren->levo == nullptr) {
+    if(koren->levo == nullptr) {
         return koren;
     }
 
@@ -131,27 +131,27 @@ inline Cvor* najmanji(Cvor* koren) {
 }
 
 inline Cvor* brisi(Cvor* koren, int x) {
-    if (koren == nullptr) {
+    if(koren == nullptr) {
         return nullptr;
     }
 
-    if (x < koren->kljuc) {
+    if(x < koren->kljuc) {
         koren->levo = brisi(koren->levo, x);
         return balansiraj(koren);
     }
 
-    if (x > koren->kljuc) {
+    if(x > koren->kljuc) {
         koren->desno = brisi(koren->desno, x);
         return balansiraj(koren);
     }
 
-    if (koren->levo == nullptr) {
+    if(koren->levo == nullptr) {
         Cvor *r = koren->desno;
         delete koren;
         return r;
     }
 
-    if (koren->desno == nullptr) {
+    if(koren->desno == nullptr) {
         Cvor *l = koren->levo;
         delete koren;
         return l;
@@ -165,7 +165,7 @@ inline Cvor* brisi(Cvor* koren, int x) {
 }
 
 inline void ispis(Cvor* koren, int dubina) {
-    if (koren == nullptr) {
+    if(koren == nullptr) {
         return;
     }
 
@@ -176,7 +176,7 @@ inline void ispis(Cvor* koren, int dubina) {
 }
 
 inline void oslobodi(Cvor *koren) {
-    if (koren == nullptr) return;
+    if(koren == nullptr) return;
     oslobodi(koren->levo);
     oslobodi(koren->desno);
     delete koren;
@@ -199,7 +199,7 @@ int oznaciSAVL(Cvor* x) {
     l = oznaciSAVL(x->levo);
     d = oznaciSAVL(x->desno);
 
-    if (l > 0 && d > 0) {
+    if(l > 0 && d > 0) {
         // [C] Nijedno podstablo ne sadrzi S-AVL cvor.
         // Da li je tekuci cvor S-AVL? Koliku visinu vratiti?
         if(l == d) {
@@ -209,7 +209,7 @@ int oznaciSAVL(Cvor* x) {
 
         x->oznaka = false;
         return std::max(l, d) + 1;
-    } else if (l < 0 || d < 0) {
+    } else if(l < 0 || d < 0) {
         // [D] Postoji S-AVL potomak: prenesi informaciju.
         x->oznaka = false;
         return -(std::max(std::abs(l), std::abs(d)) + 1);
