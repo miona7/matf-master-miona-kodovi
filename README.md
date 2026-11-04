@@ -15,7 +15,7 @@ The repository is organized by courses and programming languages:
 - **Konstrukcija i analiza algoritama 2** – C++     
   Focuses on advanced algorithms and data structures, randomized algorithms, approximation techniques, and parallel execution.
   
-- **Automatsko rezonovanje** – C++, MiniSat, Z3, Haskell      
+- **Automatsko rezonovanje** – C++, MiniSat, Z3, MiniZinc, Haskell      
   Covers formal logic, SAT and SMT solving, resolution techniques, and practical applications of automated theorem proving.
 
 ---
