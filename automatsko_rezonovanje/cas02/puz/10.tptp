@@ -1,0 +1,36 @@
+% Problem: An ocean that borders on an African and an Asian country
+% There is a database of assertions about various countries and
+% oceans and their relationships. Find which ocean borders
+% on African and Asian countries.
+
+fof(h1, hypothesis, ocean(atlantic)).
+fof(h2, hypothesis, ocean(indian)).
+fof(h3, hypothesis, south_american(brazil)).
+fof(h4, hypothesis, south_american(uruguay)).
+fof(h5, hypothesis, south_american(venesuela)).
+fof(h6, hypothesis, african(zaire)).
+fof(h7, hypothesis, african(nigeria)).
+fof(h8, hypothesis, african(angola)).
+fof(h9, hypothesis, african(somalia)).
+fof(h10, hypothesis, african(kenya)).
+fof(h11, hypothesis, african(tanzania)).
+fof(h12, hypothesis, asian(india)).
+fof(h13, hypothesis, asian(pakistan)).
+fof(h14, hypothesis, asian(iran)).
+
+fof(a1, axiom, borders(atlantic, brazil)).
+fof(a2, axiom, borders(atlantic, uruguay)).
+fof(a3, axiom, borders(atlantic, venesuela)).
+fof(a4, axiom, borders(atlantic, zaire)).
+fof(a5, axiom, borders(atlantic, nigeria)).
+fof(a6, axiom, borders(atlantic, angola)).
+fof(a7, axiom, borders(indian, india)).
+fof(a8, axiom, borders(indian, pakistan)).
+fof(a9, axiom, borders(indian, iran)).
+fof(a10, axiom, borders(indian, somalia)).
+fof(a11, axiom, borders(indian, kenya)).
+fof(a12, axiom, borders(indian, tanzania)).
+
+fof(conj, conjecture, ?[X, Y, Z]: (ocean(X) & borders(X, Y) & borders(X, Z) & african(Y) & asian(Z))).
+
+% X = indian Y = somalia Z = india.
