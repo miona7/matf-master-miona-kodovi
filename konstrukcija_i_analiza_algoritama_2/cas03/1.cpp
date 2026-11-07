@@ -58,9 +58,14 @@ public:
 
     // Gotova pomocna funkcija, koristi je testni program.
     void ispisi() const {
-        if (bitovi.size() != m)
+        if(bitovi.size() != m) {
             throw std::logic_error("Niz bitova nema m elemenata.");
-        for (bool bit : bitovi) std::cout << (bit ? '1' : '0');
+        }
+
+        for(bool bit : bitovi) {
+            std::cout << (bit ? '1' : '0');
+        }
+        
         std::cout << '\n';
     }
 };
