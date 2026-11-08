@@ -18,6 +18,9 @@ The repository is organized by courses and programming languages:
 - **Automatsko rezonovanje** – C++, MiniSat, Z3, MiniZinc, Haskell      
   Covers formal logic, SAT and SMT solving, resolution techniques, and practical applications of automated theorem proving.
 
+- **Metodologija stručnog i naučnog rada** - LaTeX     
+  Introduces methods of professional and scientific research in computer science.   
+
 ---
 
 💡 *Feel free to explore or use these examples for learning purposes.*
