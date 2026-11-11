@@ -1,0 +1,10 @@
+fof(a1, axiom, ![X]: (refl(X, X))).
+fof(a2, axiom, ![X, Y]: (r(X, Y) & r(Y, X) => X = Y)).
+fof(a3, axiom, ![X, Y, Z]: (r(X, Y) & r(Y, Z) => r(X, Z))).
+
+% fof(conj1, conjecture, ![X, Y, Z]: (r(X, Y) & r(Y, Z) & r(Z, X) => X = Y & Y = Z)).
+% fof(conj2, conjecture, ![X, Y]: (r(X, Y) | r(Y, X))).
+
+fof(a4, axiom, ![X, Y]: (r(X, Y) | r(Y, X))).
+
+fof(conj3, conjecture, ![X, Y, Z]: (r(X, Y) & r(X, Z) | r(Y, X) & r(Y, Z) | r(Z, X) & r(Z, Y))).
