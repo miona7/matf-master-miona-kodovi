@@ -1,0 +1,24 @@
+fof(a1, axiom, ![X]: ((venera(X) & zensko(X) | mars(X) & musko(X)) <=> prica_istinu(X))).
+
+fof(a2, axiom, ![X]: ((venera(X) & musko(X) | mars(X) & zensko(X)) <=> laze(X))).
+
+fof(a3, axiom, ![X]: (~prica_istinu(X) <=> laze(X))).
+fof(a4, axiom, ![X]: (~(venera(X) & mars(X)))).
+fof(a5, axiom, ![X]: (~(musko(X) & zensko(X)))).
+
+fof(h1, hypothesis, (prica_istinu(ork) <=> venera(bog))).
+fof(h2, hypothesis, (prica_istinu(bog) <=> mars(ork))).
+fof(h3, hypothesis, (prica_istinu(ork) <=> musko(bog))).
+fof(h4, hypothesis, (prica_istinu(bog) <=> zensko(ork))).
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, (mars(bog) & musko(bog))).
+% fof(conj1, conjecture, (venera(bog) & musko(bog))).
+% fof(conj1, conjecture, (mars(bog) & zensko(bog))). -> tacno
+% fof(conj1, conjecture, (venera(bog) & zensko(bog))).
+
+% fof(conj2, conjecture, (mars(ork) & musko(ork))).
+% fof(conj2, conjecture, (venera(ork) & musko(ork))). -> tacno
+% fof(conj2, conjecture, (mars(ork) & zensko(ork))).
+% fof(conj2, conjecture, (venera(ork) & zensko(ork))).
