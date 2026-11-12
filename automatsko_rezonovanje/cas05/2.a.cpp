@@ -28,11 +28,11 @@ int main() {
         formula.push_back({-p(i+1), -q(i)});
         formula.push_back({q(i), p(i+1)});
 
-        // q(i+1) = (p(i) <=> r(i))
-        formula.push_back({-q(i+1), -p(i), r(i)});
-        formula.push_back({-q(i+1), -r(i), p(i)});
-        formula.push_back({-p(i), -r(i), q(i+1)});
-        formula.push_back({p(i), r(i), q(i+1)});
+        // q(i+1) = ~(p(i) <=> r(i))
+        formula.push_back({-q(i+1), -p(i), -r(i)});
+        formula.push_back({-q(i+1), r(i), p(i)});
+        formula.push_back({-p(i), r(i), q(i+1)});
+        formula.push_back({p(i), -r(i), q(i+1)});
 
         // r(i+1) = q(i) | r(i)
         formula.push_back({-r(i+1), q(i), r(i)});
@@ -46,7 +46,7 @@ int main() {
     formula.push_back({-r(0)});
 
     Clause target;
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 5; i++) {
         // c(i) <=> stanje Si = (1, 1, 1) tj. c(i) <=> p(i) & q(i) & r(i)
         formula.push_back({-c(i), p(i)});
         formula.push_back({-c(i), q(i)});
@@ -55,11 +55,13 @@ int main() {
 
         target.push_back(c(i));
     }
-    formula.push_back(target); // ne dostize se tokom prvi 5 taktova
+    formula.push_back(target); 
+    // dostize se tokom prvih 5 taktova
+    // a najmanji broj taktova koji je potreban je 3 (u petlji menjati vrednost za i)
 
-    std::cout << "p cnf 22 " << formula.size() << std::endl;
-    for(auto c: formula) {
-        for(auto v: c) {
+    std::cout << "p cnf 23 " << formula.size() << std::endl;
+    for(const auto c: formula) {
+        for(const auto v: c) {
             std::cout << v << " ";
         }
         std::cout << 0 << std::endl;
