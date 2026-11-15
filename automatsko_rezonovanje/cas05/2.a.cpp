@@ -46,7 +46,7 @@ int main() {
     formula.push_back({-r(0)});
 
     Clause target;
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i <= 5; i++) {
         // c(i) <=> stanje Si = (1, 1, 1) tj. c(i) <=> p(i) & q(i) & r(i)
         formula.push_back({-c(i), p(i)});
         formula.push_back({-c(i), q(i)});
@@ -59,7 +59,7 @@ int main() {
     // dostize se tokom prvih 5 taktova
     // a najmanji broj taktova koji je potreban je 3 (u petlji menjati vrednost za i)
 
-    std::cout << "p cnf 23 " << formula.size() << std::endl;
+    std::cout << "p cnf 24 " << formula.size() << std::endl;
     for(const auto c: formula) {
         for(const auto v: c) {
             std::cout << v << " ";
