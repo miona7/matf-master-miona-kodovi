@@ -1,0 +1,27 @@
+% Problem: The Mislabeled Boxes
+% There are three boxes a, b, and c on a table. Each box contains
+% apples or bananas or oranges. No two boxes contain the same
+% thing. Each box has a label that says it contains apples or says
+% it contains bananas or says it contains oranges. No box contains
+% what it says on its label. The label on box a says "apples".
+% The label on box b says "oranges". The label on box c says
+% "bananas". You pick up box b and it contains apples. What do
+% the other two boxes contain?
+
+fof(ax1, axiom, (contains(a, bananas) | contains(a, oranges))).
+fof(ax2, axiom, (contains(b, apples) | contains(b, bananas))).
+fof(ax3, axiom, (contains(c, apples) | contains(c, oranges))).
+
+fof(ax4, axiom, (~contains(a, bananas) | ~contains(b, bananas))).
+fof(ax5, axiom, (~contains(b, apples) | ~contains(c, apples))).
+fof(ax6, axiom, (~contains(c, oranges) | ~contains(a, oranges))).
+
+fof(h7, hypothesis, contains(b, apples)).
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, contains(a, bananas)). -> tacno
+% fof(conj2, conjecture, contains(a, oranges)).
+
+% fof(conj3, conjecture, contains(c, apples)). 
+% fof(conj4, conjecture, contains(c, oranges)). -> tacno
