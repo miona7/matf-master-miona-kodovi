@@ -36,14 +36,31 @@ int main() {
         formula.push_back({-r(i), r(i+1)});
     }
 
+    /* MOZE ALI JE NEPRAKTICNO
     // za pocetno stanje imamo 8 mogucnosti -> isprobamo svaku da vidimo da li se vracamo u to isto stanje
     // iz stanja (0, 1, 1) i (1, 0, 1) se vracamo u isto stanje
     formula.push_back({p(0)});
     formula.push_back({q(0)});
     formula.push_back({r(0)});
 
-    // stanje nakon 3 takta treba da bude ~(pocetno stanje)
-    formula.push_back({-p(3), -q(3), -r(3)});
+    // stanje nakon 3 takta treba da bude ~(pocetno stanje) 
+    formula.push_back({-p(3), -q(3), -r(3)}); */
+
+    // nakon 3 takta treba da vazi (p(0) <=> p(3)) & (q(0) <=> q(3)) & (r(0) <=> r(3)) 
+    formula.push_back({-p(0), p(3)});
+    formula.push_back({p(0), -p(3)});
+
+    formula.push_back({-q(0), q(3)});
+    formula.push_back({q(0), -q(3)});
+
+    formula.push_back({-r(0), r(3)});
+    formula.push_back({r(0), -r(3)});
+
+    // zabranjujemo (1, 0, 1)
+    formula.push_back({-p(0), q(0), -r(0)});
+    
+    // zabranjujemo (0, 1, 1)
+    formula.push_back({p(0), -q(0), -r(0)});
 
     std::cout << "p cnf 12 " << formula.size() << std::endl;
     for(const auto& c: formula) {
