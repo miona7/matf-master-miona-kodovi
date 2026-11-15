@@ -1,0 +1,17 @@
+% Neka je R binarna relacija na nepraznom skupu A. 
+% Poznato je da je R irefleksivna (∀x ~R(x,x)) i tranzitivna.
+% a) Predstaviti navedene aksiome u logici prvog reda koristeći TPTP format.
+% b) Dokazati da je relacija R asimetrična, tj. da važi ∀x∀y (R(x,y) => ~R(y,x)).
+% c) Ispitati da li iz ovih aksioma sledi da za proizvoljne x, y, z iz A važi (R(x,y) & R(z,y)) => (R(x,z) | R(z,x) | x = z).
+% d) Dodati aksiomu trihotomije (∀x∀y (R(x,y) | R(y,x) | x = y)), pa ponovo proveriti tvrđenje pod c). 
+
+fof(ax1, axiom, ![X]: (~r(X, X))).
+fof(ax2, axiom, ![X, Y, Z]: (r(X, Y) & r(Y, Z) => r(X, Z))).
+
+% fof(konz, conjecture, $false).
+
+% fof(conj1, conjecture, ![X, Y]: (r(X, Y) => ~r(Y, X))).
+
+fof(ax3, axiom, ![X, Y]: (r(X, Y) | r(Y, X) | X = Y)).
+
+fof(conj2, conjecture, ![X, Y, Z]: (r(X, Y) & r(Z, Y) => r(X, Z) | r(Z, X) | X = Z)).
