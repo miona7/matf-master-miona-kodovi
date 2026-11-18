@@ -47,7 +47,7 @@ bool nadji(Cvor* cvor, int kljuc) {
             cvor = cvor->sledeci[nivo];
         }
     }
-    return poredi(cvor->sledeci[0], kljuc);
+    return poredi(cvor->sledeci[0], kljuc) == 0;
 }
 
 // umece novi cvor sa zadatim kljucem u skip listu
@@ -55,7 +55,7 @@ void umetni(Cvor* cvor, int kljuc) {
     std::vector<Cvor*> prethodni(brojNivoa);
 
     for(int nivo = brojNivoa - 1; nivo >= 0; nivo--) {
-        while (poredi(cvor->sledeci[nivo], kljuc) < 0) {
+        while(poredi(cvor->sledeci[nivo], kljuc) < 0) {
             cvor = cvor->sledeci[nivo];
         }
         prethodni[nivo] = cvor;
@@ -99,7 +99,7 @@ void brisi(Cvor* cvor, int kljuc) {
 
 // ispisuje skip listu. Lista se ispisuje odozgo na dole i u svakom redu ispisani su svi nivoi datog cvora
 void ispis(Cvor* cvor, int brojNivoa) {
-    if (cvor == nullptr) {
+    if(cvor == nullptr) {
         return;
     }
 
