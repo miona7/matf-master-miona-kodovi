@@ -41,7 +41,7 @@ int poredi(Cvor* cvor, int kljuc) {
 }
 
 // odredjuje da li u skip listi postoji cvor sa zadatim kljucem
-bool nadji(Cvor *cvor, int kljuc) {
+bool nadji(Cvor* cvor, int kljuc) {
     for(int nivo = brojNivoa - 1; nivo >= 0; nivo--) {
         while(poredi(cvor->sledeci[nivo], kljuc) < 0) {
             cvor = cvor->sledeci[nivo];
@@ -52,7 +52,7 @@ bool nadji(Cvor *cvor, int kljuc) {
 
 // umece novi cvor sa zadatim kljucem u skip listu
 void umetni(Cvor* cvor, int kljuc) {
-    std::vector<Cvor *> prethodni(brojNivoa);
+    std::vector<Cvor*> prethodni(brojNivoa);
 
     for(int nivo = brojNivoa - 1; nivo >= 0; nivo--) {
         while (poredi(cvor->sledeci[nivo], kljuc) < 0) {
