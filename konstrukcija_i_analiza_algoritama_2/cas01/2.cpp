@@ -14,8 +14,8 @@ struct Cvor {
     bool oznaka = false;
 
     void azurirajVrednosti() {
-        int visinaLevo = levo ? levo->visina : -1;
-        int visinaDesno = desno ? desno->visina : -1;
+        int visinaLevo = levo != nullptr ? levo->visina : -1;
+        int visinaDesno = desno != nullptr ? desno->visina : -1;
         visina = 1 + std::max(visinaLevo, visinaDesno);
         faktorRavnoteze = visinaLevo - visinaDesno;
     }
@@ -56,7 +56,7 @@ inline Cvor* rotacijaRL(Cvor* A) {
     return D;
 }
 
-inline Cvor *rotacijaRR(Cvor* A) {
+inline Cvor* rotacijaRR(Cvor* A) {
     Cvor* B = A->desno;
     A->desno = B->levo;
     B->levo = A;
@@ -146,13 +146,13 @@ inline Cvor* brisi(Cvor* koren, int x) {
     }
 
     if(koren->levo == nullptr) {
-        Cvor *r = koren->desno;
+        Cvor* r = koren->desno;
         delete koren;
         return r;
     }
 
     if(koren->desno == nullptr) {
-        Cvor *l = koren->levo;
+        Cvor* l = koren->levo;
         delete koren;
         return l;
     }
@@ -175,8 +175,10 @@ inline void ispis(Cvor* koren, int dubina) {
     ispis(koren->levo, dubina + 1);
 }
 
-inline void oslobodi(Cvor *koren) {
-    if(koren == nullptr) return;
+inline void oslobodi(Cvor* koren) {
+    if(koren == nullptr) {
+        return;
+    }
     oslobodi(koren->levo);
     oslobodi(koren->desno);
     delete koren;

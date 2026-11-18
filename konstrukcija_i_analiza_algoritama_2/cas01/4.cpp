@@ -9,8 +9,8 @@ struct Cvor {
     bool oznaka = false;
 
     void azurirajVrednosti() {
-        int visinaLevo = levo ? levo->visina : -1;
-        int visinaDesno = desno ? desno->visina : -1;
+        int visinaLevo = levo != nullptr ? levo->visina : -1;
+        int visinaDesno = desno != nullptr ? desno->visina : -1;
         visina = 1 + std::max(visinaLevo, visinaDesno);
         faktorRavnoteze = visinaLevo - visinaDesno;
     }
