@@ -19,11 +19,11 @@ void upari(Uparivanje& uparivanje, Cvor u, Cvor v) {
     Cvor uPar = uparivanje[u], vPar = uparivanje[v];
 
     if(uPar != -1) {
-      uparivanje[uPar] = -1;
+        uparivanje[uPar] = -1;
     }
 
     if(vPar != -1) {
-      uparivanje[vPar] = -1;
+        uparivanje[vPar] = -1;
     }
 
     uparivanje[u] = v;

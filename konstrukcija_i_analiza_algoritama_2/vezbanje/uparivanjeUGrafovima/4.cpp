@@ -7,9 +7,7 @@ kraj grane (v, roditelj[v]) u skupu pokrivac.
 
 minimalniPokrivacStabla — bira čvor u pokrivač (slično 4. zadatku, ali ovde možeš da vežbaš i 
 izbor samog čvora v kada ni v ni roditelj[v] nisu pokriveni, što takođe daje pokrivač minimalne 
-kardinalnosti na stablu).
-
-*/
+kardinalnosti na stablu). */
 
 #include <iostream>
 #include <vector>
