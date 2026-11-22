@@ -14,7 +14,7 @@ struct Cvor {
     bool oznaka = false;
 
     int D = 1; // Broj cvorova u podstablu, ukljucujuci ovaj cvor
-    void azurirajD(); // Student dopunjava ovu funkciju u zadatku 3.5.
+    void azurirajD(); // Student dopunjava ovu funkciju
 
     void azurirajVrednosti() {
         int visinaLevo = levo != nullptr ? levo->visina : -1;
@@ -29,7 +29,7 @@ inline Cvor* rotacijaLL(Cvor* A) {
     Cvor* B = A->levo;
     A->levo = B->desno;
     B->desno = A;
-    A->azurirajVrednosti();  // A je sada ispod B.
+    A->azurirajVrednosti();  
     B->azurirajVrednosti();
     return B;
 }
@@ -190,10 +190,7 @@ inline void oslobodi(Cvor* koren) {
 
 int brojCvorova(const Cvor* p) {
     // [A] Vrati 0 za nullptr, inace p->D, u O(1).
-    if(p == nullptr) {
-        return 0;
-    }
-    return p->D;
+    return p == nullptr ? 0 : p->D;
 }
 
 void Cvor::azurirajD() {
@@ -204,7 +201,7 @@ void Cvor::azurirajD() {
 }
 
 int rangKljuca(Cvor* koren, int x) {
-    // [C] Pronadji x i vrati njegov rang u CELOM stablu (od 1).
+    // [C] Pronadji x i vrati njegov rang u CELOM stablu.
     // Ako x ne postoji, vrati 0. Prati samo jedan put od korena.
     
     if(koren == nullptr) {
