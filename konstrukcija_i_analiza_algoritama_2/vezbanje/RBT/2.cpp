@@ -235,6 +235,6 @@ int main() {
     assert(najduzaNaizmenicnaPutanja(t3) == 1);
     oslobodi(t3);
 
-    std::cout << "Svi test primeri za naizmeničnu putanju su uspešno prošli!\n";
+    std::cout << "Svi testovi su prošli!\n";
     return 0;
 }

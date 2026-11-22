@@ -234,6 +234,6 @@ int main() {
     assert(maxCrvenihNaNajdubljemCrnomPutu(t3) == 1);
     oslobodi(t3);
 
-    std::cout << "Svi test primeri za Zadatak sa crveno-crnim stablom su uspesno prosli!\n";
+    std::cout << "Svi testovi su prosli!\n";
     return 0;
 }
