@@ -18,17 +18,17 @@ class BlumovFilter {
     }
 
 public:
-    BlumovFilter(std::size_t brojBitova, std::size_t brojFunkcija)
+    BlumovFilter(std::size_t brojBitova, std::size_t brojFunkcija) 
         : m(brojBitova), k(brojFunkcija) {
         
-            if(m < 1 || m > 128 || k < 1 || k > 3) {
-                throw std::invalid_argument("Neispravni parametri.");
-            }
+        if(m < 1 || m > 128 || k < 1 || k > 3) {
+            throw std::invalid_argument("Neispravni parametri.");
+        }
 
-            // TODO 1: napravi niz od tacno m bitova, svi su 0.
-            // throw std::logic_error("TODO 1: dopuni inicijalizaciju.");
+        // TODO 1: napravi niz od tacno m bitova, svi su 0.
+        // throw std::logic_error("TODO 1: dopuni inicijalizaciju.");
 
-            bitovi.assign(m, false);
+        bitovi.assign(m, false);
     }
 
     void dodaj(unsigned x) {
