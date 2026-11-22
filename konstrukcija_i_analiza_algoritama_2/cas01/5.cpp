@@ -5,7 +5,7 @@ Konstruisati strukturu podataka koja podržava sledeće operacije u realnom vrem
 - obrisi(x) – Brisanje elementa x iz kolekcije
 - nadji_medijanu() – Pronalaženje medijane trenutnih elemenata
 
-Kako koristi AVL stablo: Prošireno AVL stablo (gde svaki čvor zna veličinu svog podstabla) 
+Kako koristiti AVL stablo: Prošireno AVL stablo (gde svaki čvor zna veličinu svog podstabla) 
 omogućava pronalazak k-tog najmanjeg elementa u vremenu O(log n). Pošto je medijana zapravo
 (n/2)-ti po redu element, operacija find_median() traje O(log n) (ili O(1) ako se čuva pokazivač 
 na medijana-čvor koji se pomera pri ubacivanju/brisanju).
