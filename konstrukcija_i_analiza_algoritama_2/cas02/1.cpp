@@ -189,7 +189,7 @@ bool validnoCrvenoCrno(Cvor* koren) {
     // TODO: Napisati proveru svih uslova.
     // Podsetnik: nije dovoljno porediti kljuc samo sa neposrednom decom!
     
-    if(koren != nullptr && crven(koren)) {
+    if(crven(koren)) {
         return false;
     }
 
