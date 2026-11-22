@@ -1,4 +1,4 @@
-/* Zadatak 1 (sličan zadatku 3.4 – rekurzivni obilazak i kodiranje povratne vrednosti)
+/* Zadatak 1 (sličan zadatku 2 sa 1.casa – rekurzivni obilazak i kodiranje povratne vrednosti)
 
 Napisati algoritam int oznaciNajdubljeNeuravnotezene(Cvor* koren) koji u proizvoljnom binarnom stablu 
 (ne mora biti AVL) označava sve čvorove x za koje važi da su strogo neuravnoteženi (apsolutna razlika visina 
@@ -13,7 +13,6 @@ Povratna vrednost funkcije:
 Negativan znak znači da u tom podstablu (uključujući njegov koren) postoji makar jedan strogo neuravnotežen čvor; 
 pozitivan znak znači da u celom podstablu nema nijednog strogo neuravnoteženog čvora.
 Vremenska složenost: O(n), bez dodatne memorije osim steka rekurzije. */
-
 
 #include <iostream>
 #include <string>
@@ -288,6 +287,6 @@ int main() {
 
     oslobodi(n50);
 
-    std::cout << "Svi testovi za Zadatak 1 su uspesno prosli!\n";
+    std::cout << "Svi testovi su prosli!\n";
     return 0;
 }

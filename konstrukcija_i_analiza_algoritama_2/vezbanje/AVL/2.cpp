@@ -1,4 +1,4 @@
-/* Zadatak 2 (sličan zadatku 3.5 – prošireno AVL stablo i upiti u O(log n))
+/* Zadatak 2 (sličan zadatku 3 sa 1. casa – prošireno AVL stablo i upiti u O(log n))
 
 Realizovati apstraktni tip podataka nad skupom celih brojeva koristeći AVL stablo koje podržava operacije Umetni(x), 
 Obrisi(x), Prethodni(x, k) i ZbirManjihOd(x). Svaka operacija mora da radi u O(log n) vremenu u najgorem slučaju.
@@ -401,6 +401,6 @@ int main() {
     assert(prethodni(stablo, 50, 2)->kljuc == 20);
     assert(zbirManjihOd(stablo, 55) == 110);      // 10 + 20 + 30 + 50
 
-    std::cout << "Svi testovi za Zadatak 2 su uspesno prosli!\n";
+    std::cout << "Svi testovi su prosli!\n";
     oslobodi(stablo);
 }
