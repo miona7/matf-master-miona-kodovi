@@ -32,7 +32,8 @@ void upari(Uparivanje& uparivanje, Cvor u, Cvor v) {
 
 // BFS pretraga kojom se odredjuje slojeviti graf.
 // Za svaki obidjen cvor se belezi njegov sloj (udaljenost od pocetnog skupa cvorova). 
-// Pretraga pocinje iz neuparenih cvorova skupa V. Vraca broj poslednjeg sloja koji nema neuparene cvorove.
+// Pretraga pocinje iz neuparenih cvorova skupa V. 
+// Vraca broj poslednjeg sloja koji nema neuparene cvorove.
 int odrediSlojeve(std::vector<int>& sloj, const Uparivanje& uparivanje, const Graf& g, const std::vector<Cvor>& V) {
     // Belezimo kom sloju pripada koji cvor (ako cvor nije obidjen sloj mu je -1)
     sloj = std::vector<int>(g.size(), -1);
@@ -50,9 +51,9 @@ int odrediSlojeve(std::vector<int>& sloj, const Uparivanje& uparivanje, const Gr
     while(!red.empty()) {
         Cvor v = red.front();
         red.pop();
+
         // Ako imamo visak cvorova u redu iz slojeva nakon poslednjeg, preskacemo ih
-        // Ovo je samo optimizacija da ranije prestanemo sa pretragom, ne utice na slozenost
-          
+        // Ovo je samo optimizacija da ranije prestanemo sa pretragom, ne utice na slozenost  
         if(poslednjiSloj >= 0 && sloj[v] > poslednjiSloj) {
             break;
         }

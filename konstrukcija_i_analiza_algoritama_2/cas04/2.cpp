@@ -108,7 +108,7 @@ int main() {
     std::vector<std::pair<Cvor, Cvor>> izlaz;
     for(int i = 0; i < u.size(); i++) {
         if(u[i] != -1 && u[i] > i) {
-                izlaz.push_back({i, u[i]});
+            izlaz.push_back({i, u[i]});
         }
     }
     

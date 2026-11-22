@@ -16,11 +16,11 @@ void upari(Uparivanje& uparivanje, Cvor u, Cvor v) {
 
     // Rasparujemo uPar od u i vPar od v (ako postoje)
     if(uPar != -1) {
-      uparivanje[uPar] = -1;
+        uparivanje[uPar] = -1;
     }
 
     if(vPar != -1) {
-      uparivanje[vPar] = -1;
+        uparivanje[vPar] = -1;
     }
 
     // Uparujemo u sa v
@@ -56,7 +56,8 @@ Uparivanje maksimalnoUparivanje(const Graf& graf) {
     return uparivanje;
 }
 
-// Vraca jedno savrseno uparivanje u gustom grafu (svaki cvor ima barem n/2 suseda, gde je ukupan broj cvorova n)
+// Vraca jedno savrseno uparivanje u gustom grafu 
+// (svaki cvor ima barem n/2 suseda, gde je ukupan broj cvorova n)
 Uparivanje savrsenoUparivanjeGust(const Graf& graf) {
     // ZADATAK: Dopuni ovu funkciju. Ostale funkcije su vec date.
     
