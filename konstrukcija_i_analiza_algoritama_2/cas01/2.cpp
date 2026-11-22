@@ -1,4 +1,5 @@
-// Napisati algoritam koji označava sve čvorove koji su S-AVL čvorovi, ali čiji nijedan pravi potomak nije S-AVL čvor. 
+// Napisati algoritam koji označava sve čvorove koji su S-AVL čvorovi, ali čiji nijedan 
+// pravi potomak nije S-AVL čvor. 
 // Vreme izvršavanja treba da bude O(n).
 
 #include <iostream>
@@ -25,7 +26,7 @@ inline Cvor* rotacijaLL(Cvor* A) {
     Cvor* B = A->levo;
     A->levo = B->desno;
     B->desno = A;
-    A->azurirajVrednosti();  // A je sada ispod B.
+    A->azurirajVrednosti();  
     B->azurirajVrednosti();
     return B;
 }
@@ -184,9 +185,9 @@ inline void oslobodi(Cvor* koren) {
     delete koren;
 }
 
-// Rezultat: 0 za nullptr; inace +/-H, gde je H = visina + 1.
-// Negativan znak znaci da u podstablu postoji makar jedan S-AVL cvor.
-// List mora da vrati +1 i ostane neoznacen.
+// Rezultat: 0 za nullptr; inace +/-H, gde je H = visina + 1
+// Negativan znak znaci da u podstablu postoji makar jedan S-AVL cvor
+// List mora da vrati +1 i ostane neoznacen
 // Dopuniti delove [A]-[E]
 
 int oznaciSAVL(Cvor* x) {
@@ -195,11 +196,11 @@ int oznaciSAVL(Cvor* x) {
         return 0;
     }
 
-    int l = 0, d = 0;
+    x->oznaka = false;
 
     // [B] Rekurzivno obradi levo i desno podstablo.
-    l = oznaciSAVL(x->levo);
-    d = oznaciSAVL(x->desno);
+    int l = oznaciSAVL(x->levo);
+    int d = oznaciSAVL(x->desno);
 
     if(l > 0 && d > 0) {
         // [C] Nijedno podstablo ne sadrzi S-AVL cvor.
@@ -208,16 +209,12 @@ int oznaciSAVL(Cvor* x) {
             x->oznaka = true;
             return -(l+1);
         }
-
-        x->oznaka = false;
         return std::max(l, d) + 1;
     } else if(l < 0 || d < 0) {
         // [D] Postoji S-AVL potomak: prenesi informaciju.
-        x->oznaka = false;
         return -(std::max(std::abs(l), std::abs(d)) + 1);
     } else {
         // [E] Bar jedno podstablo je prazno.
-        x->oznaka = false;
         return std::max(l, d) + 1;
     }
     return 0; 
