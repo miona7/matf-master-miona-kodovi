@@ -20,7 +20,7 @@ double slucajanBroj() {
     return rand() / (RAND_MAX + 1.0);
 }
 
-// dredjuje slucajan nivo za novi cvor
+// odredjuje slucajan nivo za novi cvor
 int slucajanNivo() {
     int nivo = 1;
 
