@@ -32,11 +32,11 @@ public:
     BlumovFilter(std::size_t brojBitova, std::size_t brojFunkcija) 
         : m(brojBitova), k(brojFunkcija) {
             
-            if(m < 1 || m > 128 || k < 1 || k > 3) {
-                throw std::invalid_argument("Neispravni parametri.");
-            }
+        if(m < 1 || m > 128 || k < 1 || k > 3) {
+            throw std::invalid_argument("Neispravni parametri.");
+        }
             
-            bitovi.assign(m, false);
+        bitovi.assign(m, false);
     }
 
     void dodaj(unsigned x) {
@@ -124,6 +124,6 @@ int main() {
     BlumovFilter bf3(32, 3);
     assert(bf1.presek(bf3) == false); // Prazan filter nema postavljenih bitova u preseku sa bf1
 
-    std::cout << "Svi test primeri za Blumov filter su uspesno prosli!\n";
+    std::cout << "Svi testovi su prosli!\n";
     return 0;
 }

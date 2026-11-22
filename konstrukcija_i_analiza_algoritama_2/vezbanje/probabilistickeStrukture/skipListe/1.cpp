@@ -209,7 +209,7 @@ int main() {
     obrisiOpseg(koren, 1, 100);
     assert(pronadjiMaksimum(koren) == std::numeric_limits<int>::min());
 
-    std::cout << "Svi test primeri za Skip listu su uspesno prosli!\n";
+    std::cout << "Svi testovi su prosli!\n";
     
     // Oslobađanje memorije sentinela
     delete koren;
