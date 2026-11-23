@@ -64,6 +64,6 @@ int main() {
         for(const auto& v: c) {
             std::cout << v << " ";
         }
-        std::cout << "0" << std::endl;
+        std::cout << 0 << std::endl;
     }
 }
