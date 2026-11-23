@@ -23,7 +23,7 @@ int main() {
     for(int l = 1; l <= k+1; l++) {
         Clause c;
         for(int i = 1; i <= V; i++) {
-            c.push_back({p(i, l, k)});
+            c.push_back(p(i, l, k));
         }
         formula.push_back(c);
     }
@@ -53,7 +53,7 @@ int main() {
 
             for(const auto& e : E) {
                 if(e.second == i) {
-                    c.push_back({p(e.first, j-1, k)});
+                    c.push_back(p(e.first, j-1, k));
                 }
             }
 

@@ -60,8 +60,8 @@ int main() {
     // a najmanji broj taktova koji je potreban je 3 (u petlji menjati vrednost za i)
 
     std::cout << "p cnf 24 " << formula.size() << std::endl;
-    for(const auto c: formula) {
-        for(const auto v: c) {
+    for(const auto& c: formula) {
+        for(const auto& v: c) {
             std::cout << v << " ";
         }
         std::cout << 0 << std::endl;

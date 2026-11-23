@@ -64,7 +64,7 @@ int main() {
 
     std::cout << "p cnf 12 " << formula.size() << std::endl;
     for(const auto& c: formula) {
-        for(const auto v: c) {
+        for(const auto& v: c) {
             std::cout << v << " ";
         }
         std::cout << 0 << std::endl;
