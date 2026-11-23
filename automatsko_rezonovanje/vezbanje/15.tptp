@@ -1,0 +1,18 @@
+% Svojstva binarnih relacija (Simetričnost, tranzitivnost i ekvivalencija)
+% Neka je R binarna relacija na nepraznom skupu D, za koju važi da je refleksivna, simetrična i tranzitivna.
+% a) Predstaviti ove aksiome u logici prvog reda u TPTP formatu.
+% b) Dokazati da za proizvoljne x, y, z iz D, ako važi R(x, y) i R(z, y), onda važi i R(x, z).
+% c) Ispitati da li iz zadatih aksioma sledi da za svako x, y iz D važi R(x, y) (tj. da je relacija potpuna/univerzalna).
+% d) Dodati pretpostavku da postoji element e iz D takav da za svako x iz D važi R(x, e). 
+% e) Dokazati da su tada sva dva elementa iz D u relaciji R.
+
+fof(ax1, axiom, ![X]: (r(X, X))).
+fof(ax2, axiom, ![X, Y]: (r(X, Y) => r(Y, X))).
+fof(ax3, axiom, ![X, Y, Z]: ((r(X, Y) & r(Y, Z)) => r(X, Z))).
+
+% fof(conj1, conjecture, ![X, Y, Z]: ((r(X, Y) & r(Z, Y)) => r(X, Z))).
+
+% fof(conj2, conjecture, ![X, Y]: (r(X, Y))). % ne vazi
+
+fof(ax4, axiom, ?[E]: (![X]: (r(X, E)))).
+fof(conj3, conjecture, ![X, Y]: (r(X, Y))). % vazi
