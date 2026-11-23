@@ -29,7 +29,7 @@ int main() {
     for(int l = 1; l <= k+1; l++) {
         Clause c;
         for(int i = 1; i <= V; i++) {
-            c.push_back({p(i, l, k)});
+            c.push_back(p(i, l, k));
         }
         formula.push_back(c);
     }
@@ -59,7 +59,7 @@ int main() {
 
             for(const auto& e : E) {
                 if(e.second == i) {
-                    c.push_back({p(e.first, j-1, k)});
+                    c.push_back(p(e.first, j-1, k));
                 }
             }
 
@@ -76,7 +76,7 @@ int main() {
     // putanja mora da prodje kroz cvor 3
     Clause c;
     for(int i = 1; i <= k+1; i++) {
-        c.push_back({p(3, i, k)});
+        c.push_back(p(3, i, k));
     }
     formula.push_back(c);
 
